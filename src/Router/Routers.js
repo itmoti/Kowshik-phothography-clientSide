@@ -17,7 +17,7 @@ export const Router = createBrowserRouter([
 
             } , 
             {
-                path : '/service/:id' , element :  <ServiceDetails></ServiceDetails>
+                path : '/service/:id' , element :  <ServiceDetails></ServiceDetails> 
             }
         ]
     }

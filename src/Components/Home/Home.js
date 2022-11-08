@@ -14,7 +14,7 @@ const Home = () => {
     }, [])
     return (
         <div>
-            <div className='w-5/6 mx-auto grid grid-cols-3 gap-4'>{services?.map(service => <Services service = {service}></Services> )}</div>
+            <div className='w-5/6 mx-auto grid grid-cols-3 gap-4'>{services?.map(service => <Services key={service._id} service = {service}></Services> )}</div>
           
            <button className="btn btn-primary block mx-auto"><Link to={'/services'}>See all</Link></button>
            <Carousel></Carousel>
