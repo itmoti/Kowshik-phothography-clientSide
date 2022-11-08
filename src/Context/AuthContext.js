@@ -6,6 +6,7 @@ import { app } from '../Firebase.config.';
 export const UserContext = createContext()
 const AuthContext = ({ children }) => {
     const auth = getAuth(app)
+    console.log(auth)
     // email sign in 
     const emailSignUp = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
