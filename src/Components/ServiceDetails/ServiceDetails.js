@@ -19,10 +19,10 @@ const ServiceDetails = () => {
       
 
     return (
-        <div className='flex justify-around'>
+        <div className='grid grid-cols-2'>
          
    
-        <div className="card w-2/4 bg-base-100 shadow-xl image-full">
+        <div className="card w-2/3 mx-auto bg-base-100 shadow-xl image-full">
   <figure><img src={service?.img} alt="Loading" />
  
   </figure>
@@ -38,8 +38,15 @@ const ServiceDetails = () => {
 
    
            </div>
-           <div>
-             service details
+           <div className='w-2/3 mx-auto'>
+            {/* show all reviews container */}
+            <div className='border border-red-300 p-3'> 
+               <div className='flex '><img src='img' alt='loading'/><h2 className='font-bold ml-1 '>Motiar Rahman </h2></div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex quae obcaecati quas nam sit commodi reprehenderit tempore error. Nostrum.</p>
+
+               
+            </div>
+            <form></form>
            </div>
         </div>
     );
