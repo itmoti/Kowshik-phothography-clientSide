@@ -4,7 +4,7 @@ import  { UserContext } from '../../Context/AuthContext';
 
 const Login = () => {
     const {emailSignIn,GoogleSignIn} = useContext(UserContext)
-        console.log(GoogleSignIn)
+       
     const handleGoogleLogin = () => {
         GoogleSignIn()
         .then(result => {

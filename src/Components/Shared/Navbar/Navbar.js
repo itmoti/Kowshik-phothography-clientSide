@@ -6,8 +6,9 @@ const Navbar = () => {
   const {user ,signOutMail} = useContext(UserContext)
   const signout =() => {
     signOutMail()
+    .then(result => console.log(result))
+    .catch(err => console.error(err))
   }
-  console.log(user.email)
     return (
         <div className="navbar bg-base-100 mb-11">
         <div className="flex-1">
@@ -16,7 +17,7 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
 
-          {user.email ? <><li><Link>My Reviews</Link></li> <li><Link>Add service</Link></li> <li ><Link onClick={() => signout()}>Logout</Link></li></> :   <li><Link to={'/login'}>Login</Link></li>   }
+          {user?.email ? <><li><Link to={'/reviews'}>My Reviews</Link></li> <li><Link to={'/addservice'}>Add service</Link></li> <li ><Link onClick={() => signout()}>Logout</Link></li></> :   <li><Link to={'/login'}>Login</Link></li>   }
 
           
            

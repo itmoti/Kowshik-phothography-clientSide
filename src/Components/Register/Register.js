@@ -7,7 +7,7 @@ const Register = () => {
 const handleSignUpBtn =(event) => {
     event.preventDefault()
         const form = event.target;
-        console.log(form.email.value)
+      
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
