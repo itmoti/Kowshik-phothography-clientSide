@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UseTitle from '../../CustomHooks/UseTitle';
+
 
 const Services = ({service}) => {
+  UseTitle('Services')
     const {img , name , description , price ,_id} = service
     return (
         <div className="card w-auto bg-base-100 shadow-xl image-full">

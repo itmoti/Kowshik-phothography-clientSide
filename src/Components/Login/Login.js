@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import  { UserContext } from '../../Context/AuthContext';
+import UseTitle from '../CustomHooks/UseTitle';
 
 const Login = () => {
+  UseTitle('Login')
     const {emailSignIn,GoogleSignIn} = useContext(UserContext)
        
     const handleGoogleLogin = () => {

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UseTitle from '../CustomHooks/UseTitle';
 
 const ServiceDetails = () => {
+    UseTitle('Service Details')
     const params = useParams();
     const id = params.id
 

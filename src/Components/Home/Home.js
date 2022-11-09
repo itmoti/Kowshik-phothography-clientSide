@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../Context/AuthContext';
 import Carousel from '../Carousel/Carousel';
+import UseTitle from '../CustomHooks/UseTitle';
 import Services from './Services/Services';
 const Home = () => {
+    UseTitle('Home')
   
     const [services , setServices] = useState();
     useEffect( () => {
