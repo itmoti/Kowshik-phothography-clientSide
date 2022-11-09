@@ -73,6 +73,7 @@ const Login = () => {
           <p type='submit' className="">New here? <Link to = {'/register'}className='text-fuchsia-500'>Sign Up </Link></p>
         </div>
         <button onClick={handleGoogleLogin} className='btn btn-secondary'>Google Login</button>
+        
       </div>
     </div>
   </div>
