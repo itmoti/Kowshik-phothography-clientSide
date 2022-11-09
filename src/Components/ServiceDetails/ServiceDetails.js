@@ -1,18 +1,39 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { json, Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
 
 const ServiceDetails = () => {
     const {user} = useContext(UserContext)
+    console.log(user)
+    console.log()
     UseTitle('Service Details')
     const params = useParams();
     const id = params.id
+        //   add service review button 
     const handleAddReviewBtn =(event) => {
       event.preventDefault()
       const form = event.target
-      const review = form.name.review
-      console.log(form.review.value)
+      const review = form.review.value
+      const email = user?.email
+      const name = user?.displayName ;
+      const userPhoto = user?.photoURL
+
+      const time = new Date()
+      const timeInSec =  time.getTime()
+
+  const info = {review ,email ,  time , timeInSec , name , userPhoto  , id    }
+      console.log(review)
+      fetch(`http://localhost:5000/service/${id}`, {
+        method : 'POST' , 
+        headers : {
+            'content-type' : 'application/json'
+        } , 
+        body : JSON.stringify(info)
+
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
     }
 
      const [service , setService] = useState()
