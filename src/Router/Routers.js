@@ -5,8 +5,8 @@ import Blogs from "../Components/Blogs/Blog";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
-import MyReviews from "../Components/Reviews/Reviews";
-import Reviews from "../Components/Reviews/Reviews";
+import MyReviews from "../Components/Reviews/MyReviews";
+import Reviews from "../Components/Reviews/MyReviews";
 import ServiceDetails from "../Components/ServiceDetails/ServiceDetails";
 import Main from "../Layout/Main";
 import PrivateRouter from "./PrivateRouter";
@@ -29,19 +29,19 @@ export const Router = createBrowserRouter([
                 path: '/login', element: <Login></Login>
             },
             {
-                path : '/register' , element : <Register></Register>
-            } ,
+                path: '/register', element: <Register></Register>
+            },
             {
-                path : '/reviews' , element : <PrivateRouter><Reviews></Reviews></PrivateRouter>
-            } ,
+                path: '/reviews', element: <PrivateRouter><Reviews></Reviews></PrivateRouter>
+            },
             {
-                path : '/addservice' , element : <PrivateRouter><AddService></AddService></PrivateRouter>
-            } , 
+                path: '/addservice', element: <PrivateRouter><AddService></AddService></PrivateRouter>
+            },
             {
-                path : '/blogs' , element :<Blogs></Blogs>
-            } , 
+                path: '/blogs', element: <Blogs></Blogs>
+            },
             {
-                path : '/myreviews' , element : <PrivateRouter><MyReviews></MyReviews></PrivateRouter>
+                path: '/myreviews', element: <PrivateRouter><MyReviews></MyReviews></PrivateRouter>
             }
         ]
     }

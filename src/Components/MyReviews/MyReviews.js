@@ -11,7 +11,7 @@ const MyReviews = () => {
     console.log(user.email)
     return (
         <div>
-            its reviews page
+            its  my reviews page
         </div>
     );
 };
