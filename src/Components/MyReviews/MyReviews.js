@@ -1,17 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
 
 const MyReviews = () => {
     UseTitle('My Reviews')
     const {user} = useContext(UserContext)
-    const email = user.email
+   const [reviews , setReviews] = useState([])
+   useEffect(() => {
+    fetch(`http://localhost:5000/myreviews/${user.email}`)
+    .then(res => res.json())
+    .then(data => setReviews(data))
+   },[])
 
     
-    console.log(user.email)
+    console.log(reviews)
     return (
         <div>
-            its  my reviews page
+            {
+                reviews.map(review => {
+
+                })
+            }
         </div>
     );
 };

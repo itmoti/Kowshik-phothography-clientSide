@@ -4,9 +4,8 @@ import AllServices from "../Components/AllServices/AllServices";
 import Blogs from "../Components/Blogs/Blog";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
+import MyReviews from "../Components/MyReviews/MyReviews";
 import Register from "../Components/Register/Register";
-import MyReviews from "../Components/Reviews/MyReviews";
-import Reviews from "../Components/Reviews/MyReviews";
 import ServiceDetails from "../Components/ServiceDetails/ServiceDetails";
 import Main from "../Layout/Main";
 import PrivateRouter from "./PrivateRouter";
@@ -31,9 +30,7 @@ export const Router = createBrowserRouter([
             {
                 path: '/register', element: <Register></Register>
             },
-            {
-                path: '/reviews', element: <PrivateRouter><Reviews></Reviews></PrivateRouter>
-            },
+          
             {
                 path: '/addservice', element: <PrivateRouter><AddService></AddService></PrivateRouter>
             },
