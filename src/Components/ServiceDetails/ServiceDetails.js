@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Services from '../Home/Services/Services';
 
 const ServiceDetails = () => {
     const params = useParams();

@@ -54,7 +54,7 @@ const signOutMail =() => {
         } , [] )
        
     
-    const Auth = { emailSignUp , emailSignIn , googleProvider , GoogleSignIn ,updatingProfile , user , signOutMail }
+    const Auth = { emailSignUp , emailSignIn , googleProvider , GoogleSignIn ,updatingProfile , user , signOutMail , loading }
     return (
         <UserContext.Provider value={Auth}>
             {children}
