@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
 
-const Reviews = () => {
-    UseTitle('Reviews')
+const MyReviews = () => {
+    UseTitle('My Reviews')
+    const {user} = useContext(UserContext)
+    const email = user.email
+
+    
+    console.log(user.email)
     return (
         <div>
             its reviews page
@@ -10,4 +16,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+export default MyReviews;

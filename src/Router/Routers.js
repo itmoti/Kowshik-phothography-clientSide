@@ -5,6 +5,7 @@ import Blogs from "../Components/Blogs/Blog";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import MyReviews from "../Components/Reviews/Reviews";
 import Reviews from "../Components/Reviews/Reviews";
 import ServiceDetails from "../Components/ServiceDetails/ServiceDetails";
 import Main from "../Layout/Main";
@@ -38,6 +39,9 @@ export const Router = createBrowserRouter([
             } , 
             {
                 path : '/blogs' , element :<Blogs></Blogs>
+            } , 
+            {
+                path : '/myreviews' , element : <PrivateRouter><MyReviews></MyReviews></PrivateRouter>
             }
         ]
     }

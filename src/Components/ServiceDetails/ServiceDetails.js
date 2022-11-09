@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
 
 const ServiceDetails = () => {
+    const {user} = useContext(UserContext)
     UseTitle('Service Details')
     const params = useParams();
     const id = params.id
+    const handleAddReviewBtn =(event) => {
+      event.preventDefault()
+      const form = event.target
+      const review = form.name.review
+      console.log(form.review.value)
+    }
 
      const [service , setService] = useState()
      useEffect( () => {
@@ -39,15 +47,24 @@ const ServiceDetails = () => {
 
    
            </div>
-           <div className='w-2/3 mx-auto'>
+           <div className='w-2/3 mx-auto '>
             {/* show all reviews container */}
-            <div className='border border-red-300 p-3'> 
-               <div className='flex '><img src='img' alt='loading'/><h2 className='font-bold ml-1 '>Motiar Rahman </h2></div>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex quae obcaecati quas nam sit commodi reprehenderit tempore error. Nostrum.</p>
+            <div className='border border-red-300 p-3 mb-10'> 
+               <div className='flex '><img src='img' alt='loading'/><h2 className='font-bold ml-1 text-blue-400 '>Motiar Rahman </h2></div>
+               <p><span className='font-bold'>Review : </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ex quae obcaecati quas nam sit commodi reprehenderit tempore error. Nostrum.</p>
 
                
             </div>
-            <form></form>
+            {/* add review  */}
+            {user?.email ?
+             <form onSubmit={handleAddReviewBtn} className='border p-6'>
+                <label className='block'>Review</label>
+                <textarea name='review' className='h-40 w-full' type={''} placeholder={'add you review'} required/>
+                <button className="btn btn-active btn-sm btn-ghost" type='submit'>Add Review</button>
+             </form> 
+             : 
+              <p>Please <Link className=' text-blue-600 font-bold' to={'/login'}>Login</Link> to add reviews   </p>}
+            
            </div>
         </div>
     );

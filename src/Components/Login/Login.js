@@ -22,7 +22,26 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         emailSignIn(email,password)
-        .then(result => {console.log(result)})
+        .then(result => {console.log(result)
+          const user = result.user;
+          const currentUser= {
+            email : user.email
+          }
+        
+          fetch('http://localhost:5000/jwt' , {
+                 method : 'POST' ,
+                 headers : {
+                 'content-type' : 'application/json'
+                 } ,
+                 body : JSON.stringify(currentUser)
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data.token)
+            localStorage.setItem('token' , data.token)
+          })
+         
+        })
         .then(err => console.error(err))
     }
     return (
