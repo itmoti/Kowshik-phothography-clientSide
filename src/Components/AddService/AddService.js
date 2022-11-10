@@ -2,9 +2,13 @@ import { async } from '@firebase/util';
 import { SignInMethod } from 'firebase/auth';
 import React from 'react';
 import UseTitle from '../CustomHooks/UseTitle';
+// import { ToastContainer, toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddService = () => {
+    
     UseTitle('Add Service')
+    const notify = () => toast('Succesfully Added Service')
     const handleAddserviceBtn = (event) => {
         event.preventDefault()
         const form = event.target
@@ -27,12 +31,15 @@ const AddService = () => {
       .then(res => res.json())
       .then(data => {console.log(data)
     if(data.insertedId) {
-       
-        alert('succesfully added') }
+        toast('Successfully added');
+     
+    
+     }
     })
     }
     
     return (
+       <>
         <form onSubmit={handleAddserviceBtn} className='w-2/4 mx-auto'>
            <div>
             <label className='block mb-1 '>Name</label>
@@ -51,7 +58,12 @@ const AddService = () => {
             <textarea type={'text'} name={'description'} placeholder={'Servicee Description'} required/>
            </div>
            <button type='submit' className='btn btn-primary' >Submit</button>
+          
         </form>
+
+        <Toaster />
+        
+  </>
     );
 };
 
