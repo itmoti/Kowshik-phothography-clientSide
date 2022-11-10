@@ -5,6 +5,9 @@ import UseTitle from '../../CustomHooks/UseTitle';
 
 
 const Services = ({service}) => {
+  const zoomImg =(link) => {
+    toast(<img src={link} alt='loading'/>)
+  }
   UseTitle('Services')
     const {img , name , description , price ,_id} = service
 
@@ -25,8 +28,8 @@ const Services = ({service}) => {
 
 
     return (
-        <div className="card w-auto bg-base-100 shadow-xl image-full">
-  <figure><img src={img} alt="Loading" />
+        <div className="card w-auto bg-base-100 shadow-xl ">
+  <figure> <span onClick={() => zoomImg(img)}><img src={img} alt="Loading" /></span>
  
   </figure>
   <div className="card-body">

@@ -19,7 +19,7 @@ export const Router = createBrowserRouter([
             },
             {
                 path: '/services', element: <AllServices></AllServices>
-                // ,loader: () => fetch('http://localhost:5000/services')
+                // ,loader: () => fetch('https://kowshik-photography-serverside.vercel.app/services')
 
             },
             {
@@ -31,7 +31,7 @@ export const Router = createBrowserRouter([
             {
                 path: '/register', element: <Register></Register>
             },
-          
+
             {
                 path: '/addservice', element: <PrivateRouter><AddService></AddService></PrivateRouter>
             },
@@ -40,10 +40,10 @@ export const Router = createBrowserRouter([
             },
             {
                 path: '/myreviews', element: <PrivateRouter><MyReviews></MyReviews></PrivateRouter>
-            } , 
+            },
             {
-                path : '/reviews/edit/:id' , 
-                element : <EditReview></EditReview>
+                path: '/reviews/edit/:id',
+                element: <EditReview></EditReview>
             }
         ]
     }

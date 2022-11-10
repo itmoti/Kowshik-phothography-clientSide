@@ -7,17 +7,17 @@ const EditReview = () => {
         event.preventDefault()
         const form = event.target
         const review = form.review.value
-       const reviewInfo = {review}
-         fetch(`http://localhost:5000/reviews/${id}` , {
-            method : 'PATCH' ,
-            headers : {
-                'content-type' : 'application/json'
-            } , 
-            body : JSON.stringify(reviewInfo)
+        const reviewInfo = { review }
+        fetch(`https://kowshik-photography-serverside.vercel.app/reviews/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviewInfo)
 
-         })
-         .then(res => res.json())
-         .then(data => console.log(data))
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (

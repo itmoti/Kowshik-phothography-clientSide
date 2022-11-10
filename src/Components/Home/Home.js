@@ -8,7 +8,7 @@ const Home = () => {
 
     const [services, setServices] = useState();
     useEffect(() => {
-        fetch('http://localhost:5000/home/services')
+        fetch('https://kowshik-photography-serverside.vercel.app/home/services')
             .then(res => res.json())
             .then(data => setServices(data))
         // .catch(err => console.log(err))
@@ -50,14 +50,14 @@ const Home = () => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">Want To Hire us?</h2>
                     <ul className="steps">
-                    <li className="step step-primary">Register</li>
-                    <li className="step step-primary">Choose plan</li>
-                    <li className="step">Make Order</li>
-                    <li className="step">We Give Service</li>
-                </ul>
+                        <li className="step step-primary">Register</li>
+                        <li className="step step-primary">Choose plan</li>
+                        <li className="step">Make Order</li>
+                        <li className="step">We Give Service</li>
+                    </ul>
                 </div>
             </div>
-           
+
         </div>
     );
 };
