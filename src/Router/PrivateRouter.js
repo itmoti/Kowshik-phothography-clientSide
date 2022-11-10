@@ -4,7 +4,7 @@ import { UserContext } from '../Context/AuthContext';
 
 const PrivateRouter = ({children}) => {
    const {user , loading} = useContext(UserContext)
-   console.log('its private router' , user)
+   
    if(!loading) {
       return children
    }

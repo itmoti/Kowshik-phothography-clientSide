@@ -5,23 +5,18 @@ import UseTitle from '../CustomHooks/UseTitle';
 const MyReviews = () => {
     UseTitle('My Reviews')
     const { user } = useContext(UserContext)
-    const [reviews, setReviews] = useState([])
-    const privateKey = localStorage.getItem('token')
-    console.log(privateKey)
+    const [reviews, setReviews] = useState([]) 
+    console.log('inside my review ',user.email)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews/${user.email}`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json' , 
-                
-            } , 
-            body : JSON.stringify(privateKey)
-            
-            })
+        fetch(`http://localhost:5000/myreviews/${user?.email}`, {
+            headers : {
+                authorizaton  : `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [])
+    }, [user])
 
 
     console.log(reviews)
