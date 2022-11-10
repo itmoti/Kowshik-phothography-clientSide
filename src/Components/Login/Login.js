@@ -1,22 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import  { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
+import Spinner from '../Spinner';
 
 const Login = () => {
+  const [spinner , setSpinner] = useState(false)
   UseTitle('Login')
     const {emailSignIn,GoogleSignIn} = useContext(UserContext)
        
     const handleGoogleLogin = () => {
+      setSpinner(true)
         GoogleSignIn()
         .then(result => {
+          setSpinner(false)
             console.log(result)
         })
-        .catch(err => console.error(err))
+        .catch(err => {
+          console.error(err)
+          setSpinner(false)
+        })
     } 
    
     const handleLoginBtn =(event) => {
+      
         event.preventDefault()
+        setSpinner(true)
         const form = event.target;
         console.log(form.email.value)
         const email = form.email.value;
@@ -39,6 +48,7 @@ const Login = () => {
           .then(data => {
             console.log(data.token)
             localStorage.setItem('token' , data.token)
+            setSpinner(false)
           })
          
         })
@@ -70,6 +80,7 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>
+          {spinner && <Spinner></Spinner>}
           <p type='submit' className="">New here? <Link to = {'/register'}className='text-fuchsia-500'>Sign Up </Link></p>
         </div>
         <button onClick={handleGoogleLogin} className='btn btn-secondary'>Google Login</button>

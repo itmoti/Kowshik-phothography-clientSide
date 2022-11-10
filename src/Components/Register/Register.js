@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
+import Spinner from '../Spinner';
 
 const Register = () => {
   UseTitle('Register')
+  const [spinner , setSpinner] = useState(false)
     const {emailSignUp , updatingProfile , GoogleSignIn} = useContext(UserContext);
 const handleSignUpBtn =(event) => {
     event.preventDefault()
+    setSpinner(true)
         const form = event.target;
       
         const email = form.email.value;
@@ -21,17 +24,25 @@ const handleSignUpBtn =(event) => {
         
         emailSignUp(email,password)
         .then(result => {
+          setSpinner(false)
           updatingProfile(info)
-          .then(result => console.log(result))
-          .catch(err => console.error(err))
-          console.log(result)})
+          .then(result => {console.log(result)
+          setSpinner(false)})
+          .catch(err => console.error(err))})
         .then(err => console.error(err))
+        console.log('afte sex')
        
 }
     const handleGoogleLogin =() => {
+      setSpinner(true)
       GoogleSignIn()
-      .then(result => console.log(result))
-      .catch(err => console.error(err))
+      .then(result => {console.log(result)
+      setSpinner(false)
+      })
+      .catch(err => {console.error(err)
+        setSpinner(false)
+      
+      })
     }
     return (
         <form onSubmit={handleSignUpBtn} className="hero min-h-screen bg-base-200 w-3/4 mx-auto">
@@ -71,6 +82,7 @@ const handleSignUpBtn =(event) => {
               </div>
               <div className="form-control mt-6">
                 <button type='submit' className="btn btn-primary">Register</button>
+                {spinner && <Spinner></Spinner>}
                 <p type='submit' className="">Already Registered? <Link to = {'/login'}className='text-fuchsia-500'>Log in </Link></p>
               </div>
               <button onClick={handleGoogleLogin} className='btn btn-secondary'>Google Login</button>
