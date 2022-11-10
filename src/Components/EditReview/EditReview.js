@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { json, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const EditReview = () => {
     const id = useParams().id

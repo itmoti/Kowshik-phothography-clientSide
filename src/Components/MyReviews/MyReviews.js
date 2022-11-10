@@ -9,7 +9,6 @@ const MyReviews = () => {
     UseTitle('My Reviews')
     const { user } = useContext(UserContext)
     const [reviews, setReviews] = useState([]) 
-    const [servicesName , setServiceName] = useState([])
 //    edit button 
     const handleEditBtn =(id) => {
         console.log(id)
