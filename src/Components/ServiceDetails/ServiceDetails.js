@@ -42,13 +42,18 @@ const ServiceDetails = () => {
       .then(res => res.json())
       .then(data => console.log(data))
     }
-
+// recent review button
+const handleRecentReviewBtn =() => {
+        fetch(`http://localhost:5000/serviceByTime/${id}`)
+        .then(res => res.json())
+        .then(data => setReview(data))
+} 
      const [service , setService] = useState()
      useEffect( () => {
         fetch(`http://localhost:5000/service/${id}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+       
             setService(data)
         })
      }
@@ -77,7 +82,7 @@ const ServiceDetails = () => {
            </div>
            <div className='w-2/3 mx-auto '>
             {/* show all reviews container */}
-          
+            <button onClick={handleRecentReviewBtn} className='btn btn-outline btn-error btn-sm'>Recent Reviews </button>
             {
             reviews.map(review =>  <div className='border border-red-300 p-3 mb-3'> 
             <div className='flex '><img src='img' alt='loading'/><h2 className='font-bold ml-1 text-blue-400 '>{review.name} </h2></div>

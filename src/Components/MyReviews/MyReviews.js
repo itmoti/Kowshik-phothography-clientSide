@@ -29,6 +29,8 @@ const MyReviews = () => {
         
     }
 
+    
+
     useEffect(() => {
         fetch(`http://localhost:5000/myreviews/${user.email}`, {
             headers : {
@@ -44,6 +46,7 @@ const MyReviews = () => {
         <div className='text-center'>
              
            <h1>My reviews page</h1>
+        
            {
             reviews.length ? 
                 reviews?.map(rev => <div className='card w-96 mx-auto my-3 bg-base-100 p-3 shadow-xl ' key={rev._id}>
