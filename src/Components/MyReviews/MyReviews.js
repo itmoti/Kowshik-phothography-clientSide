@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../Context/AuthContext';
 import UseTitle from '../CustomHooks/UseTitle';
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const MyReviews = () => {
@@ -36,7 +37,7 @@ const MyReviews = () => {
         })
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [user])
+    }, [user,reviews])
 
     console.log(reviews)
     return (
@@ -48,7 +49,7 @@ const MyReviews = () => {
                 reviews?.map(rev => <div className='border ' key={rev._id}><p>
                     <h1 className='text-lg'>{rev._id}</h1>
                     {rev.review}jkjk</p>
-                    <button onClick={() =>handleEditBtn(rev._id)}>Edit</button>
+                    <button  onClick={() =>handleEditBtn(rev._id)}><Link to={`/reviews/edit/${rev._id}`}>Edit</Link></button>
                     <button onClick={() => handleDeleteBtn(rev._id)}>Delete</button>
                     </div>)
             
